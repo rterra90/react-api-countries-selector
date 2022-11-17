@@ -1,0 +1,28 @@
+.card{
+ width: 19%;
+ border-radius: .25rem;
+ overflow: hidden;
+ background-color: white;
+ box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.26);
+ margin: 20px 0;
+ transition: .3s;
+}
+.card:hover{
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.685);
+}
+main[darkmode='true'] .card{
+  background-color: var(--light-gray);
+  color: white
+}
+.cardInfoWrapper{
+  padding: 10px 20px;
+}
+.cardName{
+  margin-bottom: 14px;
+  font-weight: 800;
+}
+.cardInfo{
+  font-size: .825rem;
+  margin-bottom: 4px;
+  opacity: .925;
+}

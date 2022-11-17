@@ -1,0 +1,31 @@
+.header{
+  box-shadow: 0px 3px 2px #0000000d;
+  background-color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+}
+
+.header > div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.appTitle{
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.darkMode{
+  font-size: .85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.header[darkmode='true']{
+  background-color: var(--light-gray);
+  color: white;
+  /* box-shadow: 0px 3px 2px #eee0; */
+}

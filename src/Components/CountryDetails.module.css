@@ -1,0 +1,50 @@
+.countryDetailsWrapper{
+  margin-top: 50px
+}
+.backButton{
+  border: none;
+  padding: 7px 23px;
+  border-radius: .2rem;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.315);
+  transition: .3s;
+}
+.backButton:hover{
+  opacity: 1;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.781)
+}
+main[darkmode='true'] .backButton{
+  background-color: var(--light-gray);
+  color: white;
+  opacity: .9;
+}
+main[darkmode='true'] .backButton:hover{
+  opacity: 1;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.719)
+}
+
+.details{
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+}
+.flagSide{
+width: 40%;
+}
+
+.infoSideInner{
+  display: flex;
+  gap: 20%;
+}
+.infoSide{
+  width: 60%;
+}
+
+.borderCountries{
+  display: flex
+}
+.borderCountriesSpansWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
