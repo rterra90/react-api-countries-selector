@@ -5,14 +5,29 @@ import Searchbar from './Searchbar';
 
 const Gallery = ({ setCountry, data, setData }) => {
   const [search, setSearch] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
   React.useEffect(() => {
     async function fetchAllCountries() {
-      const response = await fetch('https://restcountries.com/v3.1/all');
-      const json = await response.json();
-      setData(json);
-      window.localStorage.setItem('countries', JSON.stringify(json));
+      try {
+        setLoading(true);
+        const response = await fetch('https://restcountries.com/v3.1/all');
+        const json = await response.json();
+        setData(json);
+        window.localStorage.setItem('countries', JSON.stringify(json));
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
     }
-    fetchAllCountries();
+
+    if (!window.localStorage.getItem('countries')) {
+      fetchAllCountries();
+      console.log('fez fetch');
+    } else {
+      setData(JSON.parse(window.localStorage.getItem('countries')));
+    }
   }, []);
 
   if (data) {

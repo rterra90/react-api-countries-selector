@@ -6,12 +6,19 @@ const CountryDetails = ({ setCountry, country }) => {
   let formatedBorders = [];
   function formatBorders(borders) {
     let allCountriesObj = JSON.parse(window.localStorage.getItem('countries'));
-    borders.forEach((countryCode) => {
-      allCountriesObj.forEach((country) => {
-        country.cca3 === countryCode &&
-          formatedBorders.push(country.name.common);
-      });
+
+    borders.forEach((code) => {
+      let c = allCountriesObj.find((_c) => _c.cca3 == code);
+
+      formatedBorders.push(c);
     });
+
+    // borders.forEach((countryCode) => {
+    //   allCountriesObj.forEach((country) => {
+    //     country.cca3 === countryCode &&
+    //       formatedBorders.push(country.name.common);
+    //   });
+    // });
   }
   country.borders && formatBorders(country.borders);
 
@@ -41,7 +48,11 @@ const CountryDetails = ({ setCountry, country }) => {
       </div>
       <div className={styles.details}>
         <div className={styles.flagSide}>
-          <img className="w-100" src={country.flags.svg} alt="" />
+          <img
+            className="w-100"
+            src={country.flags.svg}
+            alt={country.name.official}
+          />
         </div>
         <div className={styles.infoSide}>
           <h2>{country.name.common}</h2>
@@ -75,12 +86,20 @@ const CountryDetails = ({ setCountry, country }) => {
               </p>
             </div>
           </div>
-          {formatedBorders.length > 0 && (
+          {formatedBorders && (
             <div className={styles.borderCountries}>
               <div>Border countries:</div>
               <div className={styles.borderCountriesSpansWrapper}>
-                {formatedBorders.map((country) => {
-                  return <span className={styles.borderSpan}>{country}</span>;
+                {formatedBorders.map((country, i) => {
+                  return (
+                    <span
+                      key={i}
+                      className={styles.borderSpan}
+                      onClick={() => setCountry(country)}
+                    >
+                      {country.name.common}
+                    </span>
+                  );
                 })}
               </div>
             </div>
