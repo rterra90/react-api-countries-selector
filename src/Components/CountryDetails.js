@@ -75,14 +75,16 @@ const CountryDetails = ({ setCountry, country }) => {
               </p>
             </div>
           </div>
-          <div className={styles.borderCountries}>
-            <div>Border countries:</div>
-            <div className={styles.borderCountriesSpansWrapper}>
-              {formatedBorders.map((country) => {
-                return <span className={styles.borderSpan}>{country}</span>;
-              })}
+          {formatedBorders.length > 0 && (
+            <div className={styles.borderCountries}>
+              <div>Border countries:</div>
+              <div className={styles.borderCountriesSpansWrapper}>
+                {formatedBorders.map((country) => {
+                  return <span className={styles.borderSpan}>{country}</span>;
+                })}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

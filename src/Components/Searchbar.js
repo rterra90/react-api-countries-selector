@@ -47,7 +47,6 @@ const Searchbar = ({ search, setSearch, setData, data }) => {
           value={search}
           onChange={handleSearch}
         />
-        <p>{search}</p>
       </div>
       <div className={styles.filterWrapper}>
         <span

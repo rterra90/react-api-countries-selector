@@ -1,7 +1,7 @@
 {
   "name": "countries_switcher",
   "version": "0.1.0",
-  "homepage": "https://gitname.github.io/react-gh-pages",
+  "homepage": "https://rterra90.github.io/react-api-countries-selector/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

@@ -1,5 +1,9 @@
 .countryDetailsWrapper{
-  margin-top: 50px
+  margin-top: 50px;
+  min-height: calc(100vh - 137px);
+}
+main[darkmode='true'] .countryDetailsWrapper{
+  color: rgba(255, 255, 255, 0.877);
 }
 .backButton{
   border: none;
@@ -8,6 +12,8 @@
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.315);
   transition: .3s;
+  margin-bottom: 3rem;
+  cursor: pointer;
 }
 .backButton:hover{
   opacity: 1;
@@ -17,6 +23,7 @@ main[darkmode='true'] .backButton{
   background-color: var(--light-gray);
   color: white;
   opacity: .9;
+
 }
 main[darkmode='true'] .backButton:hover{
   opacity: 1;
@@ -26,25 +33,53 @@ main[darkmode='true'] .backButton:hover{
 .details{
   display: flex;
   justify-content: space-between;
+  gap: 6rem
   /* flex-wrap: wrap; */
 }
 .flagSide{
 width: 40%;
+}
+.flagSide img{
+  height: 300px;
 }
 
 .infoSideInner{
   display: flex;
   gap: 20%;
 }
+.infoSideInner p{
+  margin-bottom: 10px;
+  font-size: .9rem;
+}
+.infoSideInner b{
+font-weight: 600;
+}
 .infoSide{
   width: 60%;
 }
 
 .borderCountries{
-  display: flex
+  display: flex;
+  margin-top: 2rem;
+  font-size: .9rem;
+  font-weight: 600;
 }
 .borderCountriesSpansWrapper{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  padding-left: 20px;
+}
+.borderSpan{
+
+  font-size: .675rem;
+  padding: 5px 20px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  border-radius: .1rem;
+  font-weight: 500;
+}
+main[darkmode='true'] .borderSpan{
+  background-color: var(--light-gray);
+  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.26);
+  color: white;
 }

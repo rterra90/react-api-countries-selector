@@ -87,7 +87,8 @@ transition: .3s;
   float: right
 }
 
-main[darkmode="true"] .filterBox, main[darkmode="true"] .filterHead{
+/* DARK MODE */
+main[darkmode="true"] .filterBox, main[darkmode="true"] .filterHead, main[darkmode="true"] .searchWrapper input{
     background-color: var(--light-gray);
     box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.26);
     color: white;
