@@ -27,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/rterra90/react-api-countries-selector/tree/main)
-- Live Site URL: [Add live site URL here](https://rterra90.github.io/react-api-countries-selector/)
+- Solution URL: https://github.com/rterra90/react-api-countries-selector/tree/main
+- Live Site URL: https://rterra90.github.io/react-api-countries-selector/
 
 ### Built with
 
