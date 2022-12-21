@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CountryDetails.module.css';
+// import useFormatStrings from '../Hooks/useFormatStrings';
 
 const CountryDetails = ({ setCountry, country }) => {
   let formatedBorders = [];
@@ -76,9 +77,11 @@ const CountryDetails = ({ setCountry, country }) => {
           </div>
           <div className={styles.borderCountries}>
             <div>Border countries:</div>
-            <div className={styles.borderCountriesSpansWrapper}>{formatedBorders.map(country => {
-              return <span className={styles.borderSpan}>{country}</span>
-            })}</div>
+            <div className={styles.borderCountriesSpansWrapper}>
+              {formatedBorders.map((country) => {
+                return <span className={styles.borderSpan}>{country}</span>;
+              })}
+            </div>
           </div>
         </div>
       </div>

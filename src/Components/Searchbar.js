@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Searchbar.module.css';
 
-const Searchbar = ({ search, setSearch, setData }) => {
+const Searchbar = ({ search, setSearch, setData, data }) => {
+  let filteredObj = {};
   function handleFilter({ target }) {
     let obj = JSON.parse(window.localStorage.getItem('countries'));
     if (target.dataset.active === 'true') {
@@ -9,23 +10,44 @@ const Searchbar = ({ search, setSearch, setData }) => {
       document.querySelector('#filterPlaceholder').innerText =
         'Filter by Region';
       setData(obj);
+      filteredObj = {};
     } else {
       document.querySelector('#filterPlaceholder').innerText = target.innerText;
       document
         .querySelectorAll('#filterBox li')
         .forEach((li) => (li.dataset.active = 'false'));
       target.dataset.active = 'true';
-      let filteredObj = obj.filter((country) => {
+      filteredObj = obj.filter((country) => {
         return country.region === target.innerText;
       });
       setData(filteredObj);
     }
     document.querySelector('#filterHead').toggleAttribute('data-active');
   }
+
+  function handleSearch({ target, nativeEvent }) {
+    setSearch(target.value);
+    let originalData = JSON.parse(window.localStorage.getItem('countries'));
+    let referenceData =
+      nativeEvent.nativeinputType === 'insertText' ? data : originalData;
+    let searchData = referenceData.filter((country) => {
+      return String(country.name.common)
+        .toUpperCase()
+        .startsWith(target.value.toUpperCase());
+    });
+    setData(searchData);
+  }
+
   return (
     <div className={styles.searchbar}>
-      <div>
-        <input type="text" />
+      <div className={styles.searchWrapper}>
+        <input
+          type="text"
+          placeholder="Search for a country"
+          value={search}
+          onChange={handleSearch}
+        />
+        <p>{search}</p>
       </div>
       <div className={styles.filterWrapper}>
         <span

@@ -4,7 +4,7 @@ import styles from './Gallery.module.css';
 import Searchbar from './Searchbar';
 
 const Gallery = ({ setCountry, data, setData }) => {
-  const [search, setSearch] = React.useState(null);
+  const [search, setSearch] = React.useState('');
   React.useEffect(() => {
     async function fetchAllCountries() {
       const response = await fetch('https://restcountries.com/v3.1/all');
